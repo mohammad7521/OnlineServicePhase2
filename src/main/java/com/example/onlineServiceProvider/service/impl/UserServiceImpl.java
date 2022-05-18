@@ -6,6 +6,8 @@ import com.example.onlineServiceProvider.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -98,6 +100,9 @@ public class UserServiceImpl<T extends User> implements UserService<T> {
 
     @Override
     public void add(T t) {
+
+        t.setTime(new Time(System.currentTimeMillis()));
+        t.setDate(new Date(System.currentTimeMillis()));
         userRepo.save(t);
     }
 

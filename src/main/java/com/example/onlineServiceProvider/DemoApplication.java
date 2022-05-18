@@ -102,6 +102,8 @@ public class DemoApplication {
 			expert1.setPassword("expert1Password");
 			expert1.setEmail("expert1Email");
 			expert1.setSignUpStatus(SignUpStatus.SUBMITTED);
+			expert1.addExpertCommercialService(service1);
+			expert1.addExpertCommercialService(service2);
 			userService.add(expert1);
 
 			Expert expert2=new Expert();
@@ -109,6 +111,8 @@ public class DemoApplication {
 			expert2.setPassword("expert2Password");
 			expert2.setEmail("expert2Email");
 			expert2.setSignUpStatus(SignUpStatus.SUBMITTED);
+			expert2.addExpertCommercialService(service1);
+			expert2.addExpertCommercialService(service2);
 			userService.add(expert2);
 
 			Offer offer1=new Offer();

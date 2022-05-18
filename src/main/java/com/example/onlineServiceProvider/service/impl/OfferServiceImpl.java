@@ -53,8 +53,8 @@ public class OfferServiceImpl implements OfferService {
         //checking if the expert is eligible to add offer for a certain service
         Set<C_Service> expertC_Service=offer.getOfferExpert().getExpertCServices();
         for (C_Service cs:expertC_Service){
-            if (offer.getOfferOrder().getOrderService().getId()!=cs.getId()){
-                throw new ExpertNotQualified();
+            if (offer.getOfferOrder().getOrderService().getId()==cs.getId()){
+                break;
             }
         }
 

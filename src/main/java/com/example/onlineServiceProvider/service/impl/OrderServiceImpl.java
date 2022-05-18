@@ -9,6 +9,7 @@ import com.example.onlineServiceProvider.repository.OrderRepo;
 import com.example.onlineServiceProvider.service.ExpertService;
 import com.example.onlineServiceProvider.service.OfferService;
 import com.example.onlineServiceProvider.service.OrderService;
+import com.example.onlineServiceProvider.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.sql.Date;
@@ -26,13 +27,15 @@ public class OrderServiceImpl implements OrderService {
     private OfferService offerService;
     private OrderRepo orderRepo;
     private ExpertService expertService;
+    private UserService userService;
 
 
     public OrderServiceImpl(OrderRepo orderRepo,OfferService offerService
-    ,ExpertService expertService) {
+    ,ExpertService expertService,UserService userService) {
         this.orderRepo = orderRepo;
         this.offerService=offerService;
         this.expertService=expertService;
+        this.userService=userService;
     }
 
 
@@ -123,7 +126,6 @@ public class OrderServiceImpl implements OrderService {
 
             LocalDateTime finishTime=LocalDateTime.now();
             order.setFinishTime(finishTime);
-//            order.getChosenOffer().setFinishTime(finishTime);
             order.setDuration(Duration.between(order.getStartTime(),finishTime));
 
             var customer=order.getOrderCustomer();
@@ -137,6 +139,8 @@ public class OrderServiceImpl implements OrderService {
             order.setOrderStatus(OrderStatus.PAID);
             order.setScore(score);
 
+            userService.update(expert);
+            userService.update(customer);
             orderRepo.save(order);
             offerService.update(offer);
             expertService.scoreCalculate(expert);
