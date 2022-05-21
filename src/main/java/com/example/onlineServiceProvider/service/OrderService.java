@@ -5,7 +5,9 @@ package com.example.onlineServiceProvider.service;
 
 import com.example.onlineServiceProvider.entity.offer.Offer;
 import com.example.onlineServiceProvider.entity.order.Order;
+
 import java.util.List;
+
 
 public interface OrderService {
 
@@ -23,5 +25,5 @@ public interface OrderService {
     //order finish
     void orderFinish(Order order, int score);
 
-
+    List<Order> showAll();
 }

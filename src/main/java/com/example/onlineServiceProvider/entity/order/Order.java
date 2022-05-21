@@ -72,12 +72,12 @@ public class Order extends BaseEntity<Integer> {
     @Transient
     private Duration duration;
 
-    public void addoffer(Offer offer){
+    public void addOffer(Offer offer){
         offer.setOfferOrder(this);
         this.getOrderOffers().add(offer);
     }
 
-    public void removeoffer(Offer offer){
+    public void removeOffer(Offer offer){
         offer.setOfferOrder(null);
         this.getOrderOffers().remove(offer);
     }

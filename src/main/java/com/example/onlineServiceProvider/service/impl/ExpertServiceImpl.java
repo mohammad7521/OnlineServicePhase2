@@ -39,11 +39,7 @@ public class ExpertServiceImpl implements ExpertService {
         expertRepo.save(expert);
     }
 
-    @Override
-    @Transactional
-    public List<Expert> filterByService(C_Service service) {
-        return expertRepo.findByExpertCServices(service.getId());
-    }
+
 
     @Override
     public List<Order> expertOrders(Expert expert) {
@@ -61,6 +57,11 @@ public class ExpertServiceImpl implements ExpertService {
         }
         average=score/finishedOrders.size();
         return average;
+    }
+
+    @Override
+    public List<C_Service> expertServices(Expert expert) {
+        return expertRepo.expertServices(expert.getId());
     }
 
 

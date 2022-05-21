@@ -3,8 +3,6 @@ package com.example.onlineServiceProvider.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
-import com.example.onlineServiceProvider.entity.offer.Offer;
 import com.example.onlineServiceProvider.entity.order.Order;
 import java.util.List;
 

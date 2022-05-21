@@ -5,7 +5,6 @@ import com.example.onlineServiceProvider.entity.order.Order;
 import com.example.onlineServiceProvider.entity.order.OrderStatus;
 import com.example.onlineServiceProvider.entity.user.SignUpStatus;
 import com.example.onlineServiceProvider.exception.AccountNotActivated;
-import com.example.onlineServiceProvider.exception.ExpertNotQualified;
 import com.example.onlineServiceProvider.exception.FillRequirements;
 import com.example.onlineServiceProvider.repository.OfferRepo;
 import com.example.onlineServiceProvider.repository.OrderRepo;
@@ -66,7 +65,7 @@ public class OfferServiceImpl implements OfferService {
 
 
         Order order=offer.getOfferOrder();
-        order.addoffer(offer);
+        order.addOffer(offer);
         order.setOrderStatus(OrderStatus.EXPERT_CHOOSING);
         orderRepo.save(order);
     }

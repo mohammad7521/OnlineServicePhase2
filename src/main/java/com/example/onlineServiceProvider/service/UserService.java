@@ -4,8 +4,6 @@ package com.example.onlineServiceProvider.service;
 
 
 import com.example.onlineServiceProvider.entity.base.User;
-import com.example.onlineServiceProvider.entity.c_service.C_Service;
-
 import java.util.List;
 
 public interface UserService<T extends User> {

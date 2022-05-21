@@ -19,16 +19,17 @@ public interface ExpertService  {
 
 
 
-    //filtering experts by services.
-    public List<Expert> filterByService(C_Service c_service);
-
-
     //getting finished orders of an expert from database
     public List<Order> expertOrders(Expert expert);
 
 
     //calculating score of the expert based on previous finished orders.
     public int scoreCalculate(Expert expert);
+
+
+
+    //get the list of expert services
+    public List<C_Service> expertServices(Expert expert);
 
 
 }

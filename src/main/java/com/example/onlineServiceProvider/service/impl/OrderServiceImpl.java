@@ -4,7 +4,6 @@ import com.example.onlineServiceProvider.entity.offer.Offer;
 import com.example.onlineServiceProvider.entity.order.Order;
 import com.example.onlineServiceProvider.entity.order.OrderStatus;
 import com.example.onlineServiceProvider.exception.*;
-import com.example.onlineServiceProvider.repository.OfferRepo;
 import com.example.onlineServiceProvider.repository.OrderRepo;
 import com.example.onlineServiceProvider.service.ExpertService;
 import com.example.onlineServiceProvider.service.OfferService;
@@ -148,6 +147,10 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
+    @Override
+    public List<Order> showAll() {
+        return orderRepo.findAll();
+    }
 
 
 }

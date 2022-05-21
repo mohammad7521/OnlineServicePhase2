@@ -26,9 +26,6 @@ public class C_Service extends BaseEntity<Integer> {
     private Set<C_Service> subCServices =new HashSet<>();
 
 
-//    @OneToMany(mappedBy = "orderService",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-//    private Set<C_Service> serviceOrders =new HashSet<>();
-
 
     @ManyToOne
     @JoinColumn(name="parent_service",referencedColumnName = "id")

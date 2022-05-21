@@ -28,7 +28,8 @@ public class Expert extends User {
     private int overallScore;
 
     //each expert can provide as many services as they like.
-    @ManyToMany(mappedBy = "serviceExperts",fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "serviceExperts",fetch = FetchType.EAGER,
+            cascade = CascadeType.MERGE)
     private Set<C_Service> expertCServices = new HashSet<>();
 
     @OneToMany(mappedBy = "offerExpert",fetch = FetchType.EAGER)
