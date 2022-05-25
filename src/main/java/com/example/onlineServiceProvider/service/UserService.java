@@ -3,6 +3,7 @@ package com.example.onlineServiceProvider.service;
 
 
 
+import com.example.onlineServiceProvider.dto.request.addUpdate.CustomerSave;
 import com.example.onlineServiceProvider.entity.base.User;
 import java.util.List;
 
@@ -21,5 +22,11 @@ public interface UserService<T extends User> {
     void remove(T t);
 
     void update(T t);
+
+    boolean checkEmail(String email);
+
+    User findByID(int id);
+
+    User findByUsername(String username);
 
 }

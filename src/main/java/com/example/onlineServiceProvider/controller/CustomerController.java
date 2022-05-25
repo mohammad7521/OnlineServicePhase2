@@ -1,10 +1,13 @@
 package com.example.onlineServiceProvider.controller;
 
 
+import com.example.onlineServiceProvider.dto.request.UserVerify;
 import com.example.onlineServiceProvider.dto.request.addUpdate.CustomerSave;
 import com.example.onlineServiceProvider.entity.user.Customer;
+import com.example.onlineServiceProvider.exception.NoSuchUser;
 import com.example.onlineServiceProvider.service.CustomerService;
 import com.example.onlineServiceProvider.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +22,7 @@ public class CustomerController {
 
     private UserService<Customer> userService;
     private final AuthenticationManager manager;
+    private ModelMapper modelMapper;
 
 
     public CustomerController(UserService<Customer> userService, AuthenticationManager manager) {
@@ -28,6 +32,24 @@ public class CustomerController {
 
     @PostMapping
     public ResponseEntity<String> save(CustomerSave customerSave){
-        userService.add();
+
+        Customer customer=modelMapper.map(customerSave,Customer.class);
+        userService.add(customer);
+        return ResponseEntity.ok("verification code sent");
+    }
+
+
+
+    @PostMapping("/verify")
+    public ResponseEntity<String> verify(UserVerify userVerify){
+
+        int verificationCode;
+        if (!userService.checkEmail(userVerify.getEmail())) {
+            throw new NoSuchUser();
+        }
+        verificationCode=userService.findByID(userVerify.getId()).getVerificationCode();
+
+        if (verificationCode=userVerify.getVerifyCode())
+
     }
 }

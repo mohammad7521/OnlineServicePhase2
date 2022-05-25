@@ -26,6 +26,7 @@ public abstract class User extends BaseEntity<Integer> {
     @Column(unique = true)
     protected String email;
 
+    protected int verificationCode;
     @Transient
     public int getDiscriminatorValue(){
         return Integer.parseInt(this.getClass().getAnnotation(DiscriminatorValue.class).value());
