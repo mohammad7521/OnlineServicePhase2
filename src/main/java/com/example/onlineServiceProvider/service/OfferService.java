@@ -5,6 +5,8 @@ package com.example.onlineServiceProvider.service;
 
 import com.example.onlineServiceProvider.entity.offer.Offer;
 import com.example.onlineServiceProvider.entity.order.Order;
+import org.springframework.data.domain.Page;
+
 import java.util.List;
 
 public interface OfferService {
@@ -12,9 +14,11 @@ public interface OfferService {
 
     void addOffer(Offer offer);
 
-    List<Offer> offerOrderByPrice(Order order);
+    Page<Offer> offerOrderByPrice(int orderId);
 
-    List<Offer> offerOrderByScore(Order order);
+    Page<Offer> offerOrderByScore(int orderId);
 
     void update(Offer offer);
+
+    Offer findById(int id);
 }

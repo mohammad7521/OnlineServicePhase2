@@ -9,6 +9,7 @@ import com.example.onlineServiceProvider.exception.FillRequirements;
 import com.example.onlineServiceProvider.repository.OfferRepo;
 import com.example.onlineServiceProvider.repository.OrderRepo;
 import com.example.onlineServiceProvider.service.OfferService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.sql.Date;
@@ -78,8 +79,8 @@ public class OfferServiceImpl implements OfferService {
     //sorting offers by offered price
     @Override
     @Transactional
-    public List<Offer> offerOrderByPrice(Order order) {
-        return offerRepo.offerOrderByPrice(order.getId());
+    public Page<Offer> offerOrderByPrice(int orderId) {
+        return offerRepo.offerOrderByPrice(orderId);
     }
 
 
@@ -87,13 +88,18 @@ public class OfferServiceImpl implements OfferService {
     //4
     //sorting offers by expert score
     @Override
-    public List<Offer> offerOrderByScore(Order order) {
-        return offerRepo.offerOrderByScore(order.getId());
+    public Page<Offer> offerOrderByScore(int orderId) {
+        return offerRepo.offerOrderByScore(orderId);
     }
 
     @Override
     public void update(Offer offer) {
         offerRepo.save(offer);
+    }
+
+    @Override
+    public Offer findById(int id) {
+        return offerRepo.find(id);
     }
 
 

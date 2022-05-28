@@ -1,15 +1,18 @@
 package com.example.onlineServiceProvider.dto.request.addUpdate;
 
 
+import com.example.onlineServiceProvider.entity.c_service.C_Service;
+import com.example.onlineServiceProvider.entity.user.Customer;
 import lombok.Data;
 
+import java.security.Provider;
 import java.sql.Date;
 
 @Data
 public class OrderSave {
 
-    private int serviceId;
-    private int customerId;
+    private C_Service service;
+    private Customer customer;
     private double orderPrice;
     private String description;
     private String comment;

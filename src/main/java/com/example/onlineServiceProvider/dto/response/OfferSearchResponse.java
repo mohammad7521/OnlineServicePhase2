@@ -1,20 +1,19 @@
-package com.example.onlineServiceProvider.dto.request.addUpdate;
+package com.example.onlineServiceProvider.dto.response;
 
 
-import com.example.onlineServiceProvider.entity.order.Order;
 import com.example.onlineServiceProvider.entity.user.Expert;
-import lombok.Data;
+import lombok.*;
 
 import java.sql.Time;
 
 
-@Data
-public class OfferSave {
 
-    private Order order;
+@Data
+@Builder
+public class OfferSearchResponse {
+
     private Expert expert;
     private double offeredPrice;
     private Time duration;
     private Time startTime;
-
 }

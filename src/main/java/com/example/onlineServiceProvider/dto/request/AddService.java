@@ -1,14 +1,15 @@
-package com.example.onlineServiceProvider.dto;
+package com.example.onlineServiceProvider.dto.request;
 
 
 import com.example.onlineServiceProvider.entity.c_service.C_Service;
 import lombok.*;
 
 @Data
-public class C_ServiceDto {
+public class AddService {
 
     private String name;
     private double basePrice;
     private String description;
-    private C_Service parentService;
+    private int parentServiceId;
+
 }

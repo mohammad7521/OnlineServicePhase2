@@ -29,4 +29,6 @@ public interface UserService<T extends User> {
 
     User findByUsername(String username);
 
+    User findByEmail(String email);
+
 }

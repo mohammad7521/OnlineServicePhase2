@@ -36,7 +36,6 @@ public class Customer extends User {
     @OneToMany(mappedBy = "orderCustomer",fetch = FetchType.EAGER)
     private Set<Order> customerOrders =new HashSet<>();
 
-    private boolean activation=false;
 
     //customer balance
     private double balance;

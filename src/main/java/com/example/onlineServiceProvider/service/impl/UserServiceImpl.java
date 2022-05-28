@@ -75,6 +75,11 @@ public class UserServiceImpl<T extends User> implements UserService<T> {
         return userRepo.findByUsername(username);
     }
 
+    @Override
+    public User findByEmail(String email) {
+        return userRepo.findByEmail(email);
+    }
+
 
     @Override
     public boolean passwordMinCheck(String password) {

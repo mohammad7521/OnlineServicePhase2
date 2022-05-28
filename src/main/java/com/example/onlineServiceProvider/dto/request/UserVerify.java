@@ -8,5 +8,5 @@ public class UserVerify {
 
     private  int id;
     private  String email;
-    private  String verifyCode;
+    private  int verifyCode;
 }
